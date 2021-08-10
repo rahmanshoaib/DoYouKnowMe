@@ -1,12 +1,10 @@
-var readlineSync = require('readline-sync');
+let readlineSync = require('readline-sync');
 
 const chalk = require('chalk');
 
-var userName = readlineSync.question("Enter your name: ");
+let userName = readlineSync.question("Enter your name: ");
 
-var score = 0;
-
-console.log(chalk.blue("Welcome " + userName + " to play DO YOU KNOW ME!"));
+let score = 0;
 
 let questions = [
   {
@@ -23,9 +21,11 @@ let questions = [
   }
 ];
 
+console.log(chalk.blue("Welcome " + userName + " to play DO YOU KNOW ME!"));
+
 function play(question, answer) {
 
-  var userAnswer = readlineSync.question(question);
+  let userAnswer = readlineSync.question(question);
 
   if (userAnswer.toUpperCase() === answer.toUpperCase()) {
     console.log(chalk.green("Correct!"));
@@ -36,10 +36,10 @@ function play(question, answer) {
 }
 
 for (let i = 0; i < questions.length; i++) {
- 
+
   let currentQuestion = questions[i];
- 
+
   play(currentQuestion.question, currentQuestion.answer);
- 
-  console.log(chalk.yellow("Your Score: "+ score));
+
+  console.log(chalk.yellow("Your Score: " + score));
 }
